@@ -1,4 +1,15 @@
-# Fairness-Aware Mortgage Loan Approval Modeling (HMDA 2024)
+# FairLens — Fairness-Aware Mortgage Loan Approval Modeling (HMDA 2024)
+
+An algorithmic-bias audit of ~800k U.S. mortgage applications: predict loan approval, quantify demographic disparity across racial groups, then apply fairness-constrained optimization and measure the accuracy–fairness tradeoff.
+
+[![Live demo](https://img.shields.io/badge/Live_demo-fairlensweb.vercel.app-000000?style=flat-square&logo=vercel&logoColor=white)](https://fairlensweb.vercel.app)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-337AB7?style=flat-square&logo=xgboost&logoColor=white)
+![Fairlearn](https://img.shields.io/badge/Fairlearn-8A2BE2?style=flat-square)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)
+
+> **Interactive demo:** [fairlensweb.vercel.app](https://fairlensweb.vercel.app) — adjust an applicant and watch the approval decision shift by race, with live disparate-impact charts and a Fairlearn debiasing walkthrough.
 
 ## Overview
 
@@ -123,10 +134,10 @@ This demonstrates the real-world tension between predictive performance and regu
 
 ## Repository Structure
 
-- Final_fixed.ipynb        
-- Final Report.pdf          
-- state_mortgage_data.csv (unable to upload due to size constraint)
-- ReadMe.md                
+- `Final_fixed.ipynb` — full analysis: cleaning, feature selection, modeling, fairness evaluation, and constrained optimization
+- `Final Report.pdf` — written report
+- `README.md`
+- `state_mortgage_data.csv` — not included (size constraint); download the HMDA data as described below
 
 ---
 
