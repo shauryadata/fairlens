@@ -79,7 +79,9 @@ def main() -> None:
     models = [
         {
             "method": r["Method"],
-            "stage": r["Stage"],
+            # The baseline has no mitigation stage; the CSV leaves it empty, which pandas
+            # reads as NaN, and NaN is not JSON (JSON.parse rejects it on the site).
+            "stage": None if pd.isna(r["Stage"]) else r["Stage"],
             "accuracy": round(float(r["Accuracy"]), 4),
             "dir": round(float(r["DIR"]), 4),
             "dpd": round(float(r["DPD"]), 4),
@@ -116,7 +118,7 @@ def main() -> None:
         "models_note": "Model DIR, DPD and EOD are computed on each model's selection rates (analysis results/debiasing_comparison.csv).",
     }
     a.out.parent.mkdir(parents=True, exist_ok=True)
-    a.out.write_text(json.dumps(payload, indent=1) + "\n")
+    a.out.write_text(json.dumps(payload, indent=1, allow_nan=False) + "\n")
     print(f"wrote {a.out} ({a.out.stat().st_size:,} bytes)")
     print(f"  records: {len(df):,} (known race: {len(known):,}), overall approval {payload['dataset']['approval_rate_overall']}")
     for g in approval:
